@@ -4,6 +4,8 @@
 namespace App\Controller;
 
 use App\Model\UserManager;
+use App\Model\MovieManager;
+use App\Model\MonsterManager;
 
 class UserController
 {
@@ -27,6 +29,28 @@ class UserController
                 var_dump($e->getMessage());
                 header('HTTP/1.1 500 Internal Server Error');
             }
+        }
+        header('HTTP/1.1 405 Method Not Allowed');
+    }
+
+    public function show($id)
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $userManager = new UserManager();
+            $user = $userManager->selectOneById($id);
+
+            return json_encode($user);
+        }
+        header('HTTP/1.1 405 Method Not Allowed');
+    }
+
+    public function showLastTwoUser()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $userManager = new UserManager();
+            $users = $userManager->selectLastTwo();
+
+            return json_encode($users);
         }
         header('HTTP/1.1 405 Method Not Allowed');
     }

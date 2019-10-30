@@ -24,4 +24,9 @@ class UserManager extends AbstractManager
             return(int)$this->pdo->lastInsertId();
         }
     }
+
+    public function selectLastTwo()
+    {
+        return $this->pdo->query("SELECT * FROM $this->table ORDER BY id DESC LIMIT 2")->fetchAll();
+    }
 }
