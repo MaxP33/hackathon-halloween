@@ -22,4 +22,9 @@ abstract class AbstractApiManager
     {
         return $this->client->request('GET', self::URL . $this->endpoint)->toArray();
     }
+
+    public function selectOneById($id)
+    {
+        return $this->client->request('GET', self::URL . $this->endpoint . '/' . $id)->toArray();
+    }
 }

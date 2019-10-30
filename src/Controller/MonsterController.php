@@ -13,4 +13,11 @@ class MonsterController
         $monsters = $monsterManager->selectAll();
         return json_encode($monsters['monsters']);
     }
+
+    public function show($id)
+    {
+        $monsterManager = new MonsterManager();
+        $monster = $monsterManager->selectOneById($id);
+        return json_encode($monster['monster']);
+    }
 }
