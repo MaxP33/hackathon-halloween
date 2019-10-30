@@ -9,13 +9,12 @@ class UserController
 {
     public function add()
     {
-        if ($_SERVER['REQUEST METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             try {
                 $json = file_get_contents('php://input');
                 $obj = json_decode($json);
                 $userManager = new UserManager();
                 $user = [
-                    'id' => $obj->id,
                     'name' => $obj->name,
                     'monster_id' => $obj->monster_id,
                     'movie_id' => $obj->movie_id,
