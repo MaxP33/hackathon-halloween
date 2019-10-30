@@ -20,7 +20,6 @@ abstract class AbstractApiManager
 
     public function selectAll()
     {
-        return $this->client->request('GET',self::URL . $this->endpoint)->toArray();
+        return $this->client->request('GET', self::URL . $this->endpoint)->toArray();
     }
-
 }

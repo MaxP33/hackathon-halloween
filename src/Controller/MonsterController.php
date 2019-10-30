@@ -13,5 +13,4 @@ class MonsterController
         $monsters = $monsterManager->selectAll();
         return json_encode($monsters['monsters']);
     }
-
 }

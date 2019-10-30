@@ -3,7 +3,6 @@
 
 namespace App\Model;
 
-
 class MonsterManager extends AbstractApiManager
 {
     const ENDPOINT = 'monsters';
