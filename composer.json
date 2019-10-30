@@ -10,7 +10,8 @@
     "minimum-stability": "stable",
     "require": {
         "php" : ">=7.2",
-        "ext-pdo" : "*"
+        "ext-pdo" : "*",
+        "symfony/http-client": "^4.3"
     },
     "require-dev": {
         "phpmd/phpmd": "^2.7",
